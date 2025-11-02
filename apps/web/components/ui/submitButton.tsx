@@ -15,7 +15,7 @@ const SubmitButton = ({children, ...props}: PropsWithChildren<React.ComponentPro
       className='w-full mt-2'
       {...props}
     >
-      {children}
+      {pending ? "submitting...": children}
     </Button>
   )
 }

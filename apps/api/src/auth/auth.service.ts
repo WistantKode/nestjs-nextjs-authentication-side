@@ -1,15 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Injectable, ConflictException } from '@nestjs/common';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { UserService } from 'src/user/user.service';
 
 @Injectable()
 export class AuthService {
+  constructor(private readonly userService: UserService) {}
 
-    constructor(private readonly userService: UserService) {}
-
-    async registerUser(createUserDto: CreateUserDto) {
-        const user = await this.userService.findByEmail(createUserDto.email)
-        if (user) throw new ConflictException('User already exists !')
-        return this.userService.create(createUserDto)
-    }
+  async registerUser(createUserDto: CreateUserDto) {
+    const user = await this.userService.findByEmail(createUserDto.email);
+    if (user) throw new ConflictException('User already exists !');
+    return this.userService.create(createUserDto);
+  }
 }

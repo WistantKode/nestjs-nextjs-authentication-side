@@ -1,4 +1,7 @@
 {
+  "dependencies": {
+    "@nestjs/mapped-types": "*"
+  },
   "name": "nestjs-&-nextjs -authentication",
   "private": true,
   "scripts": {

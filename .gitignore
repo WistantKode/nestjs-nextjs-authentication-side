@@ -1,0 +1,196 @@
+# =============================================================================
+# ROOT .gitignore - Monorepo Turborepo (NestJS + Next.js)
+# =============================================================================
+# WHY: Centralized ignore rules prevent committing sensitive files, 
+#      build artifacts, and dependencies across all workspaces
+# =============================================================================
+
+# =============================================================================
+# Dependencies & Package Managers
+# =============================================================================
+# WHY: node_modules can be regenerated, are huge, and should never be committed
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Lock files - DEPENDENCY MANAGEMENT DECISION REQUIRED
+# Uncomment if you want to commit lock files (recommended for monorepos)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# =============================================================================
+# Environment Variables - CRITICAL FOR SECURITY
+# =============================================================================
+# WHY: .env files contain secrets (JWT keys, DB passwords, API keys)
+#      NEVER commit these - use .env.example as template
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# =============================================================================
+# Turborepo
+# =============================================================================
+# WHY: Build cache that can be regenerated, shouldn't be in version control
+.turbo/
+turbo.json.bak
+
+# =============================================================================
+# Build Output & Compilation
+# =============================================================================
+# WHY: Generated files - can be rebuilt from source
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+*.js.map
+*.d.ts.map
+
+# =============================================================================
+# Logs & Debug Files
+# =============================================================================
+# WHY: Logs can contain sensitive info, are temporary, and bloat the repo
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.pid
+*.seed
+*.pid.lock
+
+# =============================================================================
+# Testing & Coverage
+# =============================================================================
+# WHY: Coverage reports are generated, can be large, and change frequently
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+
+# =============================================================================
+# Operating System Files
+# =============================================================================
+# WHY: OS-specific files that are not relevant to the project
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =============================================================================
+# IDE & Editor Files
+# =============================================================================
+# WHY: IDE settings are personal preferences, can conflict between team members
+# NOTE: Some teams DO commit .vscode settings - adjust based on team preference
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# =============================================================================
+# Temporary & Cache Files
+# =============================================================================
+# WHY: Temporary files should never be committed
+.tmp/
+.temp/
+.cache/
+.parcel-cache/
+.next/cache/
+
+# =============================================================================
+# Runtime & Process Files
+# =============================================================================
+# WHY: Runtime files are machine-specific and shouldn't be versioned
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# =============================================================================
+# Database Files (if using SQLite locally)
+# =============================================================================
+# WHY: Local SQLite DBs contain data and shouldn't be in git
+*.sqlite
+*.sqlite3
+*.db
+
+# =============================================================================
+# Vercel (if deploying to Vercel)
+# =============================================================================
+# WHY: Vercel-specific files and configs
+.vercel/
+
+# =============================================================================
+# Docker (if using Docker)
+# =============================================================================
+# WHY: Docker volumes and runtime files
+docker-compose.override.yml
+*.dockerignore.bak
+
+# =============================================================================
+# Misc
+# =============================================================================
+# WHY: Common files that shouldn't be versioned
+*.pem
+*.key
+*.cert
+*.crt
+.htaccess
+*.bak
+*.backup
+*.old
+
+# =============================================================================
+# TypeScript
+# =============================================================================
+# WHY: TypeScript build info files are regenerated on each build
+*.tsbuildinfo
+next-env.d.ts
+
+# =============================================================================
+# NestJS Specific
+# =============================================================================
+# WHY: NestJS build outputs
+dist/
+*.js.map
+
+# =============================================================================
+# Diagnostic Reports (Node.js)
+# =============================================================================
+# WHY: Node.js diagnostic reports can contain sensitive info
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# =============================================================================
+# End of .gitignore
+# =============================================================================
+

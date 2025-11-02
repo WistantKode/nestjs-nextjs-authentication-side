@@ -7,7 +7,7 @@ import {
   LoginFormSchema,
   SignupFormSchema,
 } from "./type";
-import { createSession, updateTokens } from "./session";
+import { createSession } from "./session";
 
 export async function signUp(
   state: FormState,

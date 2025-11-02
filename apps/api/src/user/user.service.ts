@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -13,9 +14,15 @@ export class UserService {
 
   constructor (private readonly prisma: PrismaService){}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     const {password, ...user} = createUserDto
-    const hashedPassword = hash(password)
+    const hashedPassword = await hash(password)
+    return await this.prisma.users.create ({
+      data: {
+        password: hashedPassword,
+        ...user,
+      }
+    })
   }  
 
   async findByEmail(email: string) {

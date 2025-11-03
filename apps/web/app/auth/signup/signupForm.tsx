@@ -7,7 +7,7 @@ import React from "react";
 import { useFormState } from "react-dom";
 
 const SignUpForm = () => {
-  const [state, action] = useFormState(signUp, undefined);
+  const [state, action] = useFormState (signUp, undefined);
   return (
     <form action={action}>
       <div className="flex flex-col gap-2">

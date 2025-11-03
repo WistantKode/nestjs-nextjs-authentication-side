@@ -40,7 +40,6 @@ export async function signUp(
 }
 
 export async function signIn(
-  state: FormState,
   formData: FormData,
 ): Promise<FormState> {
   const validatedFields = LoginFormSchema.safeParse({

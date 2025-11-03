@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { IsString } from 'class-validator';
 import { IsNotEmpty } from 'class-validator';
 import { IsEmail } from 'class-validator';

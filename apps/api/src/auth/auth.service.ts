@@ -8,6 +8,7 @@ export class AuthService {
   constructor(private readonly userService: UserService) {}
 
   async registerUser(createUserDto: CreateUserDto) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const user = await this.userService.findByEmail(createUserDto.email);
     if (user) throw new ConflictException('User already exists !');
     return this.userService.create(createUserDto);
